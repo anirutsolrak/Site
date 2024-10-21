@@ -3,7 +3,7 @@ import CampoBusca from '../Header/CampoBusca'; // Importe o componente da barra 
 import { styled } from '@mui/material/styles';
 
 const HeaderContainer = styled('header')`
-  background-image: url('/src/assets/BackgroundBanner.png'); // Verifique se tem um ponto e vírgula aqui!
+  background-image: url('/src/assets/BackgroundBanner.jpg'); // Verifique se tem um ponto e vírgula aqui!
   backgroundSize: 'cover'; 
   backgroundRepeat: 'no-repeat',
   padding: 20px;
