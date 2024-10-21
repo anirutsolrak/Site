@@ -3,7 +3,9 @@ import CampoBusca from '../Header/CampoBusca'; // Importe o componente da barra 
 import { styled } from '@mui/material/styles';
 
 const HeaderContainer = styled('header')`
-  background-color: rgba(0, 0, 0, 0.5); /* Fundo opaco */
+  background-image: url('/src/assets/BackgroundBanner.jpg'); // Verifique se tem um ponto e vírgula aqui!
+  backgroundSize: 'cover'; 
+  backgroundRepeat: 'no-repeat',
   padding: 20px;
   display: flex;
   align-items: center;
@@ -12,6 +14,7 @@ const HeaderContainer = styled('header')`
   top: 0;         /* Posicionado no topo da viewport */
   width: 100%;     /* Ocupa toda a largura da página */
   z-index: 10;     /* Garante que fique sobre o conteúdo */
+  height: 125px; // Define a altura do header 
 `;
 
 function Header() {

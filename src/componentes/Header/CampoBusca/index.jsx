@@ -13,19 +13,16 @@ import Logo from '/src/assets/Logo.png';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundImage: `url('/src/assets/your_background_image.png')`, // Substitua pelo caminho da sua imagem
-  backgroundSize: 'cover', // Ajusta a imagem para cobrir todo o container
-  backgroundRepeat: 'no-repeat', // Impede a repetição da imagem
-  backgroundColor: alpha(theme.palette.common.white, 0.15), // Opcional: Define uma cor de fundo caso a imagem não preencha todo o container
+  borderRadius: (theme.shape.borderRadius, 80) ,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: alpha(theme.palette.common.black, 0.8),
   },
   marginLeft: 0,
   width: '100%',
   [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(65),
-    width: '100%',
+    marginLeft: theme.spacing(10),
+    width: '70%',
     marginRight: theme.spacing(10),
   },
 }));
@@ -46,12 +43,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    paddingLeft: `calc(1em + ${theme.spacing(3)})`,
     transition: theme.transitions.create('width'),
     [theme.breakpoints.up('sm')]: {
       width: '12ch',
       '&:focus': {
-        width: '20ch',
+        width: '10ch',
       },
     },
   },
@@ -59,11 +56,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function CampoBusca() {
   return (
-    <Box sx={{ flexGrow: 0.84 }}>
-      <AppBar position="static">
-        <Toolbar>
+    <Box sx={{ flexGrow: 1 }}> 
+      <AppBar position="static" sx={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}> {/* Opacidade 50% */}
+        <Toolbar sx={{ display: 'flex', justifyContent: 'center' }}> {/* Centralizar */}
           <img src={Logo} width="100" height="125" />
-          <Search>
+          <Search sx={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -72,7 +69,7 @@ export default function CampoBusca() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <IconeWhatsapp /> {/* Mantenha o ícone do WhatsApp */}
+          <IconeWhatsapp /> 
         </Toolbar>
       </AppBar>
     </Box>
