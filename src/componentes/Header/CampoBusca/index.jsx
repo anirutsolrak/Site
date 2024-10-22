@@ -9,7 +9,6 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import IconeWhatsapp from '../../IconesClicaveis/IconeWhatsapp';
-import Logo from '/src/assets/Logo.png';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -54,12 +53,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function CampoBusca() {
+export default function CampoBusca({ Logo }) {
   return (
-    <Box sx={{ flexGrow: 1 }}> 
+    <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}> {/* Opacidade 50% */}
-        <Toolbar sx={{ display: 'flex', justifyContent: 'center' }}> {/* Centralizar */}
-          <img src={Logo} width="100" height="125" />
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}> {/* Centralizar */}
+          <img src={Logo} width="100" height="125" /> 
           <Search sx={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
             <SearchIconWrapper>
               <SearchIcon />
@@ -69,7 +68,7 @@ export default function CampoBusca() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <IconeWhatsapp /> 
+          <IconeWhatsapp />
         </Toolbar>
       </AppBar>
     </Box>

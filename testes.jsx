@@ -1,27 +1,29 @@
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import IconeWhatsapp from '../../IconesClicaveis/IconeWhatsapp';
 import Logo from '/src/assets/Logo.png';
-import IconeWhatsapp from '../IconesClicaveis/IconeWhatsapp';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
-  borderRadius: theme.shape.borderRadius,
+  borderRadius: (theme.shape.borderRadius, 80) ,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: alpha(theme.palette.common.black, 0.8),
   },
   marginLeft: 0,
-  width: 'auto',
-  [theme.breakpoints.up('lg')]: {
-    marginLeft: theme.spacing(1),
-    width: 'auto',
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(10),
+    width: '70%',
+    marginRight: theme.spacing(10),
   },
 }));
 
@@ -37,64 +39,28 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
-  width: '100%' /* Ocupa toda a largura do container */,
+  width: '100%',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(6)})`,
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(3)})`,
     transition: theme.transitions.create('width'),
-    [theme.breakpoints.up('lg')]: {
-      width: '100%' /* Ocupa toda a largura do container em telas maiores */,
+    [theme.breakpoints.up('sm')]: {
+      width: '12ch',
       '&:focus': {
-        width:
-          '100%' /* Ocupa toda a largura do container em telas maiores, mesmo no foco */,
+        width: '10ch',
       },
     },
   },
 }));
 
-const HeaderContainer = styled(AppBar)`
-  background-color: rgba(0, 0, 0, 0.5); /* Fundo opaco */
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  position: fixed; /* Fixa o Header na tela */
-  top: 0; /* Posiciona o Header no topo */
-  width: 100%; /* Ocupa toda a largura da tela */
-  z-index: 10; /* Garante que o Header fique sobre o conteúdo */
-`;
-
-const LogoContainer = styled('div')`
-  display: flex;
-  width: 10%;
-  justify-content: center;
-
-`;
-
-const SearchContainer = styled('div')`
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Centraliza a barra de pesquisa */
-  width: 400px;  /* Aumenta o comprimento da barra de pesquisa */
-`;
-
-export default function Header() {
+export default function CampoBusca() {
   return (
-    <HeaderContainer position="static">
-      <Toolbar>
-        <LogoContainer>
-          {' '}
-          {/* Container para a logo */}
-          <img
-            src={Logo}
-            alt="Logo do site"
-            style={{ height: '100px', width: '125px' }}
-          />{' '}
-          {/* Define o tamanho da imagem */}
-        </LogoContainer>
-        <SearchContainer>
-          {' '}
-          {/* Container para a barra de pesquisa */}
-          <Search>
+    <Box sx={{ flexGrow: 1 }}> 
+      <AppBar position="static" sx={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}> {/* Opacidade 50% */}
+        <Toolbar sx={{ display: 'flex', justifyContent: 'center' }}> {/* Centralizar */}
+          <img src={Logo} width="100" height="125" />
+          <Search sx={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -103,9 +69,9 @@ export default function Header() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-        </SearchContainer>
-        <IconeWhatsapp />
-      </Toolbar>
-    </HeaderContainer>
+          <IconeWhatsapp /> 
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 }
