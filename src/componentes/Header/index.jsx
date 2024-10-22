@@ -10,13 +10,14 @@ import NavBar from './NavBar';
 
 function Header() {
   return (
+    <>
     <header className={styles.header}> 
       <Box sx={{ display: 'flex', alignItems: 'center', width: '98%' }}> {/* Centralizar o conteúdo */}
         <CampoBusca Logo={Logo} /> 
-        <NavBar />
-      </Box>
-      
+      </Box>      
     </header>
+    <NavBar />
+    </>
   );
 }
 
