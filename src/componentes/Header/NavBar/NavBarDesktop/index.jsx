@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { styled } from '@mui/material/styles';
 import List from '@mui/material/List';
-import Box from '@mui/material/Box';
 import NavItem from '../NavItem';
+import { Box } from '@mui/material';
 
 const NavBarContainer = styled('nav')(({ theme }) => ({
-  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+  backgroundColor: 'rgba(0, 0, 0, 0.1)',
   padding: '10px 0',
   justifyContent: 'space-between',
-  alignItems: 'center',
-  width: '100%',
-  
+  alignItems: 'flex-start',
+  width: '100vw',
+
 }));
 
 function NavBarDesktop() {
@@ -90,8 +90,10 @@ function NavBarDesktop() {
 
 
   return (
+    <Box sx={{position: 'absolute', 
+    top: '165px' }}>
     <NavBarContainer ref={navRef}> {/* Adiciona a referência ao componente */}
-      <List sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+      <List sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', }}>
         {menuItems.map((item) => (
           <NavItem 
             key={item.name} 
@@ -104,6 +106,7 @@ function NavBarDesktop() {
         ))}
       </List>
     </NavBarContainer>
+    </Box>
   );
 }
 
