@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { styled } from '@mui/material/styles';
 import List from '@mui/material/List';
-import NavItem from '../NavItem'; 
+import Box from '@mui/material/Box';
+import NavItem from '../NavItem';
 
 const NavBarContainer = styled('nav')(({ theme }) => ({
   backgroundColor: 'rgba(255, 255, 255, 0.1)',
@@ -9,7 +10,7 @@ const NavBarContainer = styled('nav')(({ theme }) => ({
   justifyContent: 'space-between',
   alignItems: 'center',
   width: '100%',
-  marginTop: '10px',
+  marginTop: '-250px',
 }));
 
 function NavBarDesktop() {
@@ -24,10 +25,13 @@ function NavBarDesktop() {
   });
 
   const handleExpandClick = (itemName) => {
-    setExpanded((prevExpanded) => ({
-      ...prevExpanded,
-      [itemName]: !prevExpanded[itemName],
-    }));
+    setExpanded((prevExpanded) => {
+      const newExpanded = {};
+      for (const key in prevExpanded) {
+        newExpanded[key] = key === itemName ? !prevExpanded[key] : false;
+      }
+      return newExpanded;
+    });
   };
 
   const menuItems = [
@@ -61,11 +65,40 @@ function NavBarDesktop() {
     },
   ];
 
+  // Referência para o NavBarContainer
+  const navRef = useRef(null);
+
+  // useEffect para detectar cliques fora do NavBar
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setExpanded((prevExpanded) => {
+          const newExpanded = {};
+          for (const key in prevExpanded) {
+            newExpanded[key] = false;
+          }
+          return newExpanded;
+        });
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+
   return (
-    <NavBarContainer>
+    <NavBarContainer ref={navRef}> {/* Adiciona a referência ao componente */}
       <List sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         {menuItems.map((item) => (
-          <NavItem key={item.name} itemName={item.name} expanded={expanded[item.name]} handleExpandClick={handleExpandClick}>
+          <NavItem 
+            key={item.name} 
+            itemName={item.name} 
+            expanded={expanded[item.name]} 
+            handleExpandClick={handleExpandClick}
+          >
             {item.subItems}
           </NavItem>
         ))}

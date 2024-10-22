@@ -22,12 +22,12 @@ function NavBar() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       {isLargeScreen ? (
-        <NavBarDesktop /> 
+        <NavBarDesktop />
       ) : (
-        <NavBarMobile 
-          open={open} 
-          drawerWidth={drawerWidth} 
-          handleDrawerOpen={handleDrawerOpen} 
+        <NavBarMobile
+          open={open}
+          drawerWidth={drawerWidth}
+          handleDrawerOpen={handleDrawerOpen}
           handleDrawerClose={handleDrawerClose}
         />
       )}

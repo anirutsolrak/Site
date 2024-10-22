@@ -16,7 +16,7 @@ const StyledSubItem = styled(ListItemButton)(({ theme }) => ({
   margin: theme.spacing(0, 0.5),
 }));
 
-function NavSubItem({ children }) { 
+function NavSubItem({ children }) { // Recebe o conteúdo do subitem como children
   return (
     <StyledSubItem>
       {children}

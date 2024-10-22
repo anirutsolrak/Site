@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
-import AppBar from '@mui/material/AppBar'; 
-import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -21,15 +19,13 @@ import Box from '@mui/material/Box';
 
 const drawerWidth = 240;
 
-const StyledAppBar = styled(AppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  transition: theme.transitions.create(["margin", "width"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  width: open ? `calc(100% - ${drawerWidth}px)` : `calc(100% - 0px)`,
-}));
+const MenuIconButton = styled(IconButton)({
+  position: 'fixed',
+  top: 0,
+  right: 0,
+  margin: '10px',
+  zIndex: 1300,
+});
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -58,22 +54,35 @@ function NavBarMobile({ open, drawerWidth, handleDrawerOpen, handleDrawerClose }
     }));
   };
 
+  // Referência para a gaveta
+  const drawerRef = useRef(null);
+
+  // useEffect para detectar cliques fora da gaveta
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+        handleDrawerClose();
+      }
+    };
+
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [open]);
+
   return (
-    <Box sx={{ display: "block", width: "auto" }}>
-      <StyledAppBar position="relative" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="end"
-            onClick={handleDrawerOpen}
-            sx={[open && { display: 'none' }]}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </StyledAppBar>
+    <Box>
+      {!open && (
+        <MenuIconButton color="black" aria-label="open drawer" onClick={handleDrawerOpen}>
+          <MenuIcon />
+        </MenuIconButton>
+      )}
       <Drawer
+        ref={drawerRef} // Adiciona a referência à gaveta
         sx={{
           width: drawerWidth,
           flexShrink: 0,
@@ -113,10 +122,183 @@ function NavBarMobile({ open, drawerWidth, handleDrawerOpen, handleDrawerClose }
                         </ListItemIcon>
                         <ListItemText primary="Apontadores" />
                       </ListItemButton>
-                      {/* ... outros subitens de Papelaria ... */}
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Borracha" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Carimbos" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Cola" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Corretivos" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Clips" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Régua" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Papéis e Blocos" />
+                      </ListItemButton>
                     </>
                   )}
                   {/* Repita a lógica acima para outras categorias */}
+                  {itemName === 'Agenda e Planner' && (
+                    <>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Agendas" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Planner" />
+                      </ListItemButton>
+                    </>
+                  )}
+                  {itemName === 'Presentes' && (
+                    <>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Presentes" />
+                      </ListItemButton>
+                    </>
+                  )}
+                  {itemName === 'Escrita' && (
+                    <>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Esferográficas" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Marca Texto" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Giz de Cera" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Canetinhas Coloridas" />
+                      </ListItemButton>
+                    </>
+                  )}
+                  {itemName === 'Cadernos' && (
+                    <>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Brochura" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Espiral" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Cadernos" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Fichários e Cia" />
+                      </ListItemButton>
+                    </>
+                  )}
+                  {itemName === 'Corte e Costura' && (
+                    <>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Tesouras" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Agulhas" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Alfinetes" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Linhas" />
+                      </ListItemButton>
+                    </>
+                  )}
+                  {itemName === 'Serviços' && (
+                    <>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Afiacão" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Botão" />
+                      </ListItemButton>
+                      <ListItemButton sx={{ pl: 4 }}>
+                        <ListItemIcon>
+                          <StarBorderIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Ilhós" />
+                      </ListItemButton>
+                    </>
+                  )}
                 </List>
               </Collapse>
             </div>
