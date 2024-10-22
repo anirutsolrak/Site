@@ -10,7 +10,7 @@ const NavBarContainer = styled('nav')(({ theme }) => ({
   justifyContent: 'space-between',
   alignItems: 'center',
   width: '100%',
-  marginTop: '-250px',
+  
 }));
 
 function NavBarDesktop() {
