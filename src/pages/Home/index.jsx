@@ -70,7 +70,7 @@ function Home() {
             <CardMedia 
               component="img"
                sx={{ width: '100%', height: '100%' }}
-              image="/src/assets/seção2.jpg" 
+               image={seção2}
               alt="Descrição da imagem"
             />
           </Card>
@@ -156,7 +156,7 @@ function Home() {
             <CardMedia 
               component="img"
                sx={{ width: '100%', height: '100%' }}
-               image={seção2} 
+              image="/static/images/cards/imagem5.jpg" 
               alt="Descrição da imagem"
             />
             <CardContent sx={{ textAlign: 'center' }}>
