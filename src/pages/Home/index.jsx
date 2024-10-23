@@ -3,30 +3,30 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import CardActionArea from '@mui/material/CardActionArea';
-import { Box, Container, Grid } from '@mui/material';
+import { Box, Container, Grid2 } from '@mui/material';
 
 function Home() {
   return (
-    <Container sx={{ 
-      display: 'flex', 
-      flexDirection: 'column', 
+    <Container sx={{  
       backgroundImage: 'linear-gradient(to bottom, #a0d8ef 20%,#feffff 38%,#feffff 38%,#feffff 39%,#ddf1f9 55%)',
-      minHeight: '100vh', 
-      padding: '2rem' 
+      width: '100%', // Ajusta a largura do Container
+      maxWidth: '100%', // Define a largura máxima do Container
+      Height: '100%', 
+      padding: '2rem', 
+      marginTop: 30,
     }}>
-      <Box sx={{ mb: 4 }}> 
-        <Typography variant="h3" align="center">
-          Página Inicial
-        </Typography>
-      </Box>
-
       {/* Card principal com texto à direita */}
-      <Grid container spacing={2} sx={{ alignItems: 'center' }}>
-        <Grid item xs={12} md={6}>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}> 
-            <Card sx={{ maxWidth: 345 }}>
-              <CardContent>
+      <Grid2 container spacing={6} sx={{ alignItems: 'center', mt: 4 }}>
+        <Grid2 item xs={12} md={6}>
+          <Box sx={{ alignItems: 'center' }}> 
+            <Card sx={{ width: '35vw', height: '45vh', backgroundColor: 'rgba(255, 255, 255, 0.2)', // Opaco
+                     // Necessário para centralizar o conteúdo
+                    
+                    justifyContent: 'center', // Centraliza verticalmente
+                    alignItems: 'center',
+                    boxSizing: 'border-box' // Inclui padding e bordas na largura
+                  }}>
+              <CardContent sx={{ textAlign: 'center' }}> {/* Centraliza texto */}
                 <Typography variant="h5" gutterBottom>
                   Bem-vindo à nossa loja!
                 </Typography>
@@ -38,24 +38,50 @@ function Home() {
               </CardContent>
             </Card>
           </Box>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Card sx={{ maxWidth: 345 }}>
+        </Grid2>
+        <Grid2 item xs={12} md={6}>
+          <Card sx={{ width: '45vw', height: '45vh', backgroundColor: 'rgba(255, 255, 255, 0.2)', // Opaco
+                    justifyContent: 'center', 
+                    alignItems: 'center',
+                    boxSizing: 'border-box' // Inclui padding e bordas na largura
+                  }}>
             <CardMedia 
               component="img"
-              height="140"
-              image="/static/images/cards/imagem1.jpg" // Substitua pela sua imagem
+               sx={{ width: '100%', height: '100%' }}
+              image="/src/assets/seção1.jpg" 
               alt="Descrição da imagem"
             />
           </Card>
-        </Grid>
-      </Grid>
+        </Grid2>
+      </Grid2>
 
       {/* Card com imagem à esquerda e texto à direita */}
-      <Grid container spacing={2} sx={{ alignItems: 'center', mt: 4 }}> 
-        <Grid item xs={12} md={6}> 
-          <Card sx={{ maxWidth: 345 }}>
-            <CardContent>
+      <Grid2 container spacing={6} sx={{ alignItems: 'center', mt: 4 }}> 
+        <Grid2 item xs={12} md={6}>
+          <Card sx={{ width: '35vw', height: '45vh', backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                     
+                    
+                    justifyContent: 'center', 
+                    alignItems: 'center',
+                    boxSizing: 'border-box' // Inclui padding e bordas na largura
+                  }}>
+            <CardMedia 
+              component="img"
+               sx={{ width: '100%', height: '100%' }}
+              image="/src/assets/seção2.jpg" 
+              alt="Descrição da imagem"
+            />
+          </Card>
+        </Grid2>
+        <Grid2 item xs={12} md={6}> 
+          <Card sx={{ width: '45vw', height: '45vh', backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                     
+                    
+                    justifyContent: 'center', 
+                    alignItems: 'center',
+                    boxSizing: 'border-box' // Inclui padding e bordas na largura
+                  }}>
+            <CardContent sx={{ textAlign: 'center' }}> 
               <Typography variant="h5" gutterBottom>
                 Tradição e inovação
               </Typography>
@@ -70,67 +96,75 @@ function Home() {
               </Typography>
             </CardContent>
           </Card>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia 
-              component="img"
-              height="140"
-              image="/static/images/cards/imagem2.jpg" // Substitua pela sua imagem
-              alt="Descrição da imagem"
-            />
-          </Card>
-        </Grid>
-      </Grid>
+        </Grid2>
+      </Grid2>
 
       {/* Cards em linha */}
-      <Grid container spacing={2} sx={{ mt: 4 }}>
-        <Grid item xs={12} md={4}> 
-          <Card sx={{ maxWidth: 345 }}>
+      <Grid2 container spacing={6} sx={{ mt: 4 }}>
+        <Grid2 item xs={12} md={4}> 
+          <Card sx={{ maxWidth: 345, backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                     
+                    
+                    justifyContent: 'center', 
+                    alignItems: 'center',
+                    boxSizing: 'border-box' // Inclui padding e bordas na largura
+                  }}>
             <CardMedia 
               component="img"
-              height="140"
-              image="/static/images/cards/imagem3.jpg" // Substitua pela sua imagem
+               sx={{ width: '100%', height: '100%' }}
+              image="/static/images/cards/imagem3.jpg" 
               alt="Descrição da imagem"
             />
-            <CardContent>
+            <CardContent sx={{ textAlign: 'center' }}>
               <Typography variant="h6" gutterBottom>
                 Nossos Serviços
               </Typography>
             </CardContent>
           </Card>
-        </Grid>
-        <Grid item xs={12} md={4}> 
-          <Card sx={{ maxWidth: 345 }}>
+        </Grid2>
+        <Grid2 item xs={12} md={4}> 
+          <Card sx={{ maxWidth: 345, backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                     
+                    
+                    justifyContent: 'center', 
+                    alignItems: 'center',
+                    boxSizing: 'border-box' // Inclui padding e bordas na largura
+                  }}>
             <CardMedia 
               component="img"
-              height="140"
-              image="/static/images/cards/imagem4.jpg" // Substitua pela sua imagem
+               sx={{ width: '100%', height: '100%' }}
+              image="/static/images/cards/imagem4.jpg" 
               alt="Descrição da imagem"
             />
-            <CardContent>
+            <CardContent sx={{ textAlign: 'center' }}>
               <Typography variant="h6" gutterBottom>
                 Nossos Produtos
               </Typography>
             </CardContent>
           </Card>
-        </Grid>
-        <Grid item xs={12} md={4}> 
-          <Card sx={{ maxWidth: 345 }}>
+        </Grid2>
+        <Grid2 item xs={12} md={4}> 
+          <Card sx={{ maxWidth: 345, backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                     
+                    
+                    justifyContent: 'center', 
+                    alignItems: 'center',
+                    boxSizing: 'border-box' // Inclui padding e bordas na largura
+                  }}>
             <CardMedia 
               component="img"
-              height="140"
-              image="/static/images/cards/imagem5.jpg" // Substitua pela sua imagem
+               sx={{ width: '100%', height: '100%' }}
+              image="/static/images/cards/imagem5.jpg" 
               alt="Descrição da imagem"
             />
-            <CardContent>
+            <CardContent sx={{ textAlign: 'center' }}>
               <Typography variant="h6" gutterBottom>
                 Sobre Nós
               </Typography>
             </CardContent>
           </Card>
-        </Grid>
-      </Grid>
+        </Grid2>
+      </Grid2>
 
     </Container>
   );

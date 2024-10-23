@@ -93,7 +93,7 @@ function NavBarMobile({ open, drawerWidth, handleDrawerOpen, handleDrawerClose }
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             width: drawerWidth,
-            zIndex: 1200,
+            
           },
         }}
         variant="persistent"
