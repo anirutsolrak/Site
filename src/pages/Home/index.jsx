@@ -4,6 +4,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box, Container, Grid2 } from '@mui/material';
+import seção1 from '../../assets/seção1.jpg';
+import seção2 from '../../assets/seção2.jpg';
 
 function Home() {
   return (
@@ -48,7 +50,7 @@ function Home() {
             <CardMedia 
               component="img"
                sx={{ width: '100%', height: '100%' }}
-              image="/src/assets/seção1.jpg" 
+              image={seção1} 
               alt="Descrição da imagem"
             />
           </Card>
@@ -154,7 +156,7 @@ function Home() {
             <CardMedia 
               component="img"
                sx={{ width: '100%', height: '100%' }}
-              image="/static/images/cards/imagem5.jpg" 
+               image={seção2} 
               alt="Descrição da imagem"
             />
             <CardContent sx={{ textAlign: 'center' }}>
