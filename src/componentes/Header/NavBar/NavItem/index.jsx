@@ -8,6 +8,15 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import NavSubList from '../NavSubList';
 import NavSubItem from '../NavSubItem'; 
+import PapelariaIcon from '../../../../assets/icones/PapelariaIcon.png';
+import AgendaIcon from '../../../../assets/icones/AgendaIcon.png';
+import ServiçosIcon from '../../../../assets/icones/ServiçosIcon.png';
+import CorteCosturaIcon from '../../../../assets/icones/CorteCosturaIcon.png';
+import CadernosIcon from '../../../../assets/icones/CadernosIcon.png';
+import EscritaIcon from '../../../../assets/icones/EscritaIcon.png';
+import PresentesIcon from '../../../../assets/icones/PresentesIcon.png';
+
+
 
 const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
   '&:hover': {
@@ -26,7 +35,18 @@ function NavItem({ itemName, expanded, handleExpandClick, children }) {
   return (
     <Box sx={{ position: 'relative' }}>
       <StyledListItemButton onClick={() => handleExpandClick(itemName)}>
-        <ListItemText primary={itemName} />
+        {/* Container para o ícone e o texto */}
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          {itemName === 'Papelaria' && <img src={PapelariaIcon} alt="Papelaria" height="32" />}
+          {itemName === 'Agenda e Planner' && <img src={AgendaIcon} alt="Agenda e Planner" height="32" />}
+          {itemName === 'Presentes' && <img src={PresentesIcon} alt="Papelaria" height="32" />}
+          {itemName === 'Escrita' && <img src={EscritaIcon} alt="Agenda e Planner" height="32" />}
+          {itemName === 'Cadernos' && <img src={CadernosIcon} alt="Papelaria" height="32" />}
+          {itemName === 'Corte e Costura' && <img src={CorteCosturaIcon} alt="Agenda e Planner" height="32" />}
+          {itemName === 'Serviços' && <img src={ServiçosIcon} alt="Papelaria" height="32" />}
+          {/* Adiciona espaçamento entre o ícone e o texto */}
+          <ListItemText primary={itemName} sx={{ marginLeft: '16px' }} /> 
+        </Box>
         {expanded ? <ExpandLess /> : <ExpandMore />}
       </StyledListItemButton>
       <Collapse in={expanded} timeout="auto" unmountOnExit>

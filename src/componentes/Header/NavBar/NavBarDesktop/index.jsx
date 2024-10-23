@@ -4,13 +4,13 @@ import List from '@mui/material/List';
 import NavItem from '../NavItem';
 import { Box } from '@mui/material';
 
+
 const NavBarContainer = styled('nav')(({ theme }) => ({
-  backgroundColor: 'rgba(0, 0, 0, 0.1)',
+  backgroundImage: 'linear-gradient(to bottom, #a0d8ef 20%,#feffff 38%,#feffff 38%,#feffff 39%,#ddf1f9 55%);',
   padding: '10px 0',
   justifyContent: 'space-between',
   alignItems: 'flex-start',
   width: '100vw',
-
 }));
 
 function NavBarDesktop() {

@@ -14,7 +14,12 @@ import Collapse from '@mui/material/Collapse';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import MailIcon from '@mui/icons-material/Mail';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import RedeemIcon from '@mui/icons-material/Redeem';
+import EditIcon from '@mui/icons-material/Edit';
+import BookIcon from '@mui/icons-material/Book';
+import ContentCutIcon from '@mui/icons-material/ContentCut';
+import BuildIcon from '@mui/icons-material/Build';
 import Box from '@mui/material/Box';
 
 const drawerWidth = 240;
@@ -105,9 +110,42 @@ function NavBarMobile({ open, drawerWidth, handleDrawerOpen, handleDrawerClose }
           {Object.keys(expanded).map((itemName) => (
             <div key={itemName}>
               <ListItemButton onClick={() => handleExpandClick(itemName)}>
-                <ListItemIcon>
-                  <MailIcon />
-                </ListItemIcon>
+                {/* Renderiza o ícone correspondente a cada item */}
+                {itemName === 'Papelaria' && (
+                  <ListItemIcon>
+                    <StarBorderIcon />
+                  </ListItemIcon>
+                )}
+                {itemName === 'Agenda e Planner' && (
+                  <ListItemIcon>
+                    <CalendarTodayIcon />
+                  </ListItemIcon>
+                )}
+                {itemName === 'Presentes' && (
+                  <ListItemIcon>
+                    <RedeemIcon />
+                  </ListItemIcon>
+                )}
+                {itemName === 'Escrita' && (
+                  <ListItemIcon>
+                    <EditIcon />
+                  </ListItemIcon>
+                )}
+                {itemName === 'Cadernos' && (
+                  <ListItemIcon>
+                    <BookIcon />
+                  </ListItemIcon>
+                )}
+                {itemName === 'Corte e Costura' && (
+                  <ListItemIcon>
+                    <ContentCutIcon />
+                  </ListItemIcon>
+                )}
+                {itemName === 'Serviços' && (
+                  <ListItemIcon>
+                    <BuildIcon />
+                  </ListItemIcon>
+                )}
                 <ListItemText primary={itemName} />
                 {expanded[itemName] ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
