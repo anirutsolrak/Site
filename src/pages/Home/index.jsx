@@ -10,18 +10,18 @@ function Home() {
     <Container sx={{  
       backgroundImage: 'linear-gradient(to bottom, #a0d8ef 20%,#feffff 38%,#feffff 38%,#feffff 39%,#ddf1f9 55%)',
       width: '100%', // Ajusta a largura do Container
-      maxWidth: '100%', // Define a largura máxima do Container
-      Height: '100%', 
+      maxWidth: '100vw', // Define a largura máxima do Container
+      Height: '100vh', 
       padding: '2rem', 
-      marginTop: 30,
+      marginTop: { xs: 20, md: 30 },
     }}>
       {/* Card principal com texto à direita */}
-      <Grid2 container spacing={6} sx={{ alignItems: 'center', mt: 4 }}>
-        <Grid2 item xs={12} md={6}>
+      <Grid2 container spacing={6} sx={{ alignItems: 'center', mt: 4, boxSizing: 'border-box' }}> 
+        <Grid2> 
           <Box sx={{ alignItems: 'center' }}> 
             <Card sx={{ width: '35vw', height: '45vh', backgroundColor: 'rgba(255, 255, 255, 0.2)', // Opaco
-                     // Necessário para centralizar o conteúdo
-                    
+                    display: 'flex', // Necessário para centralizar o conteúdo
+                    flexDirection: 'column',
                     justifyContent: 'center', // Centraliza verticalmente
                     alignItems: 'center',
                     boxSizing: 'border-box' // Inclui padding e bordas na largura
@@ -39,7 +39,7 @@ function Home() {
             </Card>
           </Box>
         </Grid2>
-        <Grid2 item xs={12} md={6}>
+        <Grid2> 
           <Card sx={{ width: '45vw', height: '45vh', backgroundColor: 'rgba(255, 255, 255, 0.2)', // Opaco
                     justifyContent: 'center', 
                     alignItems: 'center',
@@ -56,11 +56,11 @@ function Home() {
       </Grid2>
 
       {/* Card com imagem à esquerda e texto à direita */}
-      <Grid2 container spacing={6} sx={{ alignItems: 'center', mt: 4 }}> 
-        <Grid2 item xs={12} md={6}>
+      <Grid2 container spacing={6} sx={{ alignItems: 'center', mt: 4, boxSizing: 'border-box' }}>  
+        <Grid2> 
           <Card sx={{ width: '35vw', height: '45vh', backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                     
-                    
+                    display: 'flex', 
+                    flexDirection: 'column',
                     justifyContent: 'center', 
                     alignItems: 'center',
                     boxSizing: 'border-box' // Inclui padding e bordas na largura
@@ -73,10 +73,10 @@ function Home() {
             />
           </Card>
         </Grid2>
-        <Grid2 item xs={12} md={6}> 
+        <Grid2> 
           <Card sx={{ width: '45vw', height: '45vh', backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                     
-                    
+                    display: 'flex', 
+                    flexDirection: 'column',
                     justifyContent: 'center', 
                     alignItems: 'center',
                     boxSizing: 'border-box' // Inclui padding e bordas na largura
@@ -100,11 +100,11 @@ function Home() {
       </Grid2>
 
       {/* Cards em linha */}
-      <Grid2 container spacing={6} sx={{ mt: 4 }}>
-        <Grid2 item xs={12} md={4}> 
-          <Card sx={{ maxWidth: 345, backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                     
-                    
+      <Grid2 container spacing={6} sx={{ mt: 4, boxSizing: 'border-box' }}> 
+        <Grid2> 
+          <Card sx={{ maxWidth: '30%', backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    display: 'flex', 
+                    flexDirection: 'column',
                     justifyContent: 'center', 
                     alignItems: 'center',
                     boxSizing: 'border-box' // Inclui padding e bordas na largura
@@ -122,10 +122,10 @@ function Home() {
             </CardContent>
           </Card>
         </Grid2>
-        <Grid2 item xs={12} md={4}> 
-          <Card sx={{ maxWidth: 345, backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                     
-                    
+        <Grid2> 
+          <Card sx={{ maxWidth: '30%', backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    display: 'flex', 
+                    flexDirection: 'column',
                     justifyContent: 'center', 
                     alignItems: 'center',
                     boxSizing: 'border-box' // Inclui padding e bordas na largura
@@ -143,10 +143,10 @@ function Home() {
             </CardContent>
           </Card>
         </Grid2>
-        <Grid2 item xs={12} md={4}> 
-          <Card sx={{ maxWidth: 345, backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                     
-                    
+        <Grid2> 
+          <Card sx={{ maxWidth: '30%', backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    display: 'flex', 
+                    flexDirection: 'column',
                     justifyContent: 'center', 
                     alignItems: 'center',
                     boxSizing: 'border-box' // Inclui padding e bordas na largura

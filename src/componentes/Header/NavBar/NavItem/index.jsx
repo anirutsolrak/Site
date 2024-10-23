@@ -37,13 +37,13 @@ function NavItem({ itemName, expanded, handleExpandClick, children }) {
       <StyledListItemButton onClick={() => handleExpandClick(itemName)}>
         {/* Container para o ícone e o texto */}
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          {itemName === 'Papelaria' && <img src={PapelariaIcon} alt="Papelaria" height="32" />}
-          {itemName === 'Agenda e Planner' && <img src={AgendaIcon} alt="Agenda e Planner" height="32" />}
-          {itemName === 'Presentes' && <img src={PresentesIcon} alt="Papelaria" height="32" />}
-          {itemName === 'Escrita' && <img src={EscritaIcon} alt="Agenda e Planner" height="32" />}
-          {itemName === 'Cadernos' && <img src={CadernosIcon} alt="Papelaria" height="32" />}
-          {itemName === 'Corte e Costura' && <img src={CorteCosturaIcon} alt="Agenda e Planner" height="32" />}
-          {itemName === 'Serviços' && <img src={ServiçosIcon} alt="Papelaria" height="32" />}
+          {itemName === 'Papelaria' && <img src={PapelariaIcon} alt="Papelaria" height="29" />}
+          {itemName === 'Agenda e Planner' && <img src={AgendaIcon} alt="Agenda e Planner" height="29" />}
+          {itemName === 'Presentes' && <img src={PresentesIcon} alt="Papelaria" height="29" />}
+          {itemName === 'Escrita' && <img src={EscritaIcon} alt="Agenda e Planner" height="29" />}
+          {itemName === 'Cadernos' && <img src={CadernosIcon} alt="Papelaria" height="29" />}
+          {itemName === 'Corte e Costura' && <img src={CorteCosturaIcon} alt="Agenda e Planner" height="29" />}
+          {itemName === 'Serviços' && <img src={ServiçosIcon} alt="Papelaria" height="29" />}
           {/* Adiciona espaçamento entre o ícone e o texto */}
           <ListItemText primary={itemName} sx={{ marginLeft: '16px' }} /> 
         </Box>
