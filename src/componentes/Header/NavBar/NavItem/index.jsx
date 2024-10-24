@@ -21,14 +21,11 @@ import PresentesIcon from '../../../../assets/icones/PresentesIcon.png';
 const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
   '&:hover': {
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
-  },
-  padding: theme.spacing(1, 2),
-  borderRadius: 8,
+  },  
+  borderRadius: 100,
   '&:focus': {
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
-  },
-  width: 'fit-content',
-  margin: theme.spacing(0, 0.5),
+  }  
 }));
 
 function NavItem({ itemName, expanded, handleExpandClick, children }) {
@@ -36,16 +33,16 @@ function NavItem({ itemName, expanded, handleExpandClick, children }) {
     <Box sx={{ position: 'relative' }}>
       <StyledListItemButton onClick={() => handleExpandClick(itemName)}>
         {/* Container para o ícone e o texto */}
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          {itemName === 'Papelaria' && <img src={PapelariaIcon} alt="Papelaria" height="29" />}
-          {itemName === 'Agenda e Planner' && <img src={AgendaIcon} alt="Agenda e Planner" height="29" />}
-          {itemName === 'Presentes' && <img src={PresentesIcon} alt="Papelaria" height="29" />}
-          {itemName === 'Escrita' && <img src={EscritaIcon} alt="Agenda e Planner" height="29" />}
-          {itemName === 'Cadernos' && <img src={CadernosIcon} alt="Papelaria" height="29" />}
-          {itemName === 'Corte e Costura' && <img src={CorteCosturaIcon} alt="Agenda e Planner" height="29" />}
-          {itemName === 'Serviços' && <img src={ServiçosIcon} alt="Papelaria" height="29" />}
+        <Box sx={{ display: 'flex', alignItems: 'center',}}>
+          {itemName === 'Papelaria' && <img src={PapelariaIcon} alt="Papelaria" height="29" style={{ opacity: 0.5 }}  />}
+          {itemName === 'Agenda e Planner' && <img src={AgendaIcon} alt="Agenda e Planner" height="29" style={{ opacity: 0.5 }}  />}
+          {itemName === 'Presentes' && <img src={PresentesIcon} alt="Papelaria" height="29" style={{ opacity: 0.5 }}  />}
+          {itemName === 'Escrita' && <img src={EscritaIcon} alt="Agenda e Planner" height="29" style={{ opacity: 0.5 }}  />}
+          {itemName === 'Cadernos' && <img src={CadernosIcon} alt="Papelaria" height="29" style={{ opacity: 0.5 }}  />}
+          {itemName === 'Corte e Costura' && <img src={CorteCosturaIcon} alt="Agenda e Planner" height="29" style={{ opacity: 0.5 }}  />}
+          {itemName === 'Serviços' && <img src={ServiçosIcon} alt="Papelaria" height="29" style={{ opacity: 0.5 }}  />}
           {/* Adiciona espaçamento entre o ícone e o texto */}
-          <ListItemText primary={itemName} sx={{ marginLeft: '16px' }} /> 
+          <ListItemText primary={itemName} sx={{ marginLeft: '8px', justifyContent: 'space-around' }} /> 
         </Box>
         {expanded ? <ExpandLess /> : <ExpandMore />}
       </StyledListItemButton>
